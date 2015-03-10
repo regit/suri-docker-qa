@@ -77,11 +77,11 @@ run pip install buildbot buildbot_slave
 run mkdir /data /var/run/sshd
 run useradd -m -d /data/buildbot -p sa1aY64JOY94w admin
 run sed -Ei 's/adm:x:4:/admin:x:4:admin/' /etc/group
-run sed -Ei 's/(\%admin ALL=\(ALL\) )ALL/\1 NOPASSWD:ALL/' /etc/sudoers
+run adduser admin sudo
 
 # Create buildbot configuration
 run cd /data/buildbot; sudo -u admin sh -c "buildbot create-master master"
-add  master.cfg /data/buildbot/master/master.cfg
+add  buildbot.cfg /data/buildbot/master/master.cfg
 run cd /data/buildbot; sudo -u admin sh -c \
     "buildslave create-slave slave localhost:9989 buildslave Suridocker"
 
