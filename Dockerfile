@@ -54,7 +54,7 @@
 # ssh -p $(docker port $CONTAINER_ID 22 | cut -d: -f 2) admin@localhost
 #
 # Base docker image
-from debian
+from debian:jessie
 
 # Make dpkg happy with the upstart issue
 ## appears to not be necessary anymore --dustin
