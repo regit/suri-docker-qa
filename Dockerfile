@@ -65,13 +65,13 @@ from debian
 
 run apt-get update
 run DEBIAN_FRONTEND=noninteractive apt-get install -y python-pip python-dev \
-    supervisor git sudo ssh
-run pip install buildbot buildbot_slave
-
-run DEBIAN_FRONTEND=noninteractive apt-get install -y libpcre3-dev \
+    supervisor git sudo ssh \
+    libpcre3-dev \
     build-essential autoconf automake libtool libpcap-dev libnet1-dev \
     libyaml-0-2 libyaml-dev zlib1g zlib1g-dev libmagic-dev libcap-ng-dev \
-    libjansson-dev pkg-config libnetfilter-queue-dev 
+    libjansson-dev pkg-config libnetfilter-queue-dev clang libprelude-dev
+
+run pip install buildbot buildbot_slave
 
 # Set ssh superuser (username: admin   password: admin)
 run mkdir /data /var/run/sshd
