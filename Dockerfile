@@ -101,6 +101,8 @@ user=admin\n" > \
 
 run sed -Ei 's/^(\%sudo.*)ALL/\1NOPASSWD:ALL/' /etc/sudoers
 
+add pcaps/* /data/pcaps/
+
 # Setup running docker container buildbot process
 # Make host port 8010 match container port 8010
 expose :8010
