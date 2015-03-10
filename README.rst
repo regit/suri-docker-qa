@@ -23,4 +23,4 @@ To start the docker container ::
 Then point to http://localhost:8010/
 
 You can get access via SSH to the docker image with the admin/admin account. Once
-connected you can use sudo with same password.
+connected you can use sudo.

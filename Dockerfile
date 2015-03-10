@@ -99,6 +99,8 @@ directory=/data/buildbot/slave\n\
 user=admin\n" > \
     /etc/supervisor/conf.d/buildbot.conf
 
+run sed -Ei 's/^(\%sudo.*)ALL/\1NOPASSWD:ALL/' /etc/sudoers
+
 # Setup running docker container buildbot process
 # Make host port 8010 match container port 8010
 expose :8010
