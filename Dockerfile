@@ -102,7 +102,7 @@ user=admin\n" > \
 
 run sed -Ei 's/^(\%sudo.*)ALL/\1NOPASSWD:ALL/' /etc/sudoers
 
-run apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y python-psutil parallel
+run apt-get update && apt-get dist-upgrade -y && DEBIAN_FRONTEND=noninteractive apt-get install -y python-psutil parallel
 
 add pcaps/* /data/pcaps/
 
