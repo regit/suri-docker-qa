@@ -64,7 +64,7 @@ Create the container
 This operation has only to be done once. From the root of
 Suricata  sources, run ::
 
- sudo qa/prscript.py -C master
+ sudo qa/prscript.py -C
 
 It will take some times as the download is several hundred Mo. The result will
 be a docker container named 'suri-buildbot'.
@@ -74,7 +74,7 @@ Start and use the buildbot
 
 When you need to use the buildbot, you can start it from the command line ::
 
- sudo qa/prscript.py -s master
+ sudo qa/prscript.py -s
 
 You can then start a build ::
 
@@ -96,6 +96,6 @@ external check.
 Stop the buildbot
 -----------------
 
-When you dont't need the buildbot anymore, you can stop it from the command line ::
+When you don't need the buildbot anymore, you can stop it from the command line ::
 
- sudo qa/prscript.py -S master
+ sudo qa/prscript.py -S
