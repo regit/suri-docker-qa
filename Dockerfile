@@ -77,7 +77,6 @@ run pip install buildbot buildbot_slave
 # Set ssh superuser (username: admin   password: admin)
 run mkdir /data /var/run/sshd
 run useradd -m -d /data/buildbot -p sa1aY64JOY94w admin
-run sed -Ei 's/adm:x:4:/admin:x:4:admin/' /etc/group
 run adduser admin sudo
 
 # Create buildbot configuration
