@@ -78,6 +78,13 @@ When you need to use the buildbot, you can start it from the command line ::
 
 You can then start a build ::
 
+ qa/prscript.py -d -l YOUR_BRANCH
+
+This will start a build of the local branch YOUR_BRANCH without doing any
+external check.
+
+If your branch is pushed on Githb you can run ::
+
  qa/prscript.py -d -u GITHUB_USER YOUR_BRANCH
 
 This will check that your code is in sync with the master repository and then
@@ -85,13 +92,6 @@ start a build of the branch YOUR_BRANCH.
 
 Please note that in that case, this is the code of your local branch that is
 tested and not the code of Github branch.
-
-If your branch is not pushed on Githb you can run ::
-
- qa/prscript.py -d -l YOUR_BRANCH
-
-This will start a build of the local branch YOUR_BRANCH without doing any
-external check.
 
 Stop the buildbot
 -----------------
