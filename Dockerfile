@@ -81,7 +81,6 @@ run adduser admin sudo
 
 # Create buildbot configuration
 run cd /data/buildbot; sudo -u admin sh -c "buildbot create-master master"
-add  buildbot.cfg /data/buildbot/master/master.cfg
 run cd /data/buildbot; sudo -u admin sh -c \
     "buildslave create-slave slave localhost:9989 buildslave Suridocker"
 
