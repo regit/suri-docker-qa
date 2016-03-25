@@ -13,7 +13,7 @@ to do the build. This allows to do private testing even without
 Internet access.
 
 If you only want to use it in the scope of Suricata development you can
-jump to the last section of the documentation.
+simply read the last section of the documentation.
 
 Use the image
 =============
