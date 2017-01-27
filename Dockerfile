@@ -72,7 +72,7 @@ run DEBIAN_FRONTEND=noninteractive apt-get install -y python-pip python-dev \
     libjansson-dev pkg-config libnetfilter-queue-dev clang libprelude-dev \
     libnetfilter-log-dev coccinelle liblua5.1-0-dev valgrind
 
-run pip install buildbot buildbot_slave
+run pip install "buildbot<0.9" "buildbot_slave<0.9"
 
 # Set ssh superuser (username: admin   password: admin)
 run mkdir /data /var/run/sshd
