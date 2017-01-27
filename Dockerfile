@@ -70,7 +70,7 @@ run DEBIAN_FRONTEND=noninteractive apt-get install -y python-pip python-dev \
     build-essential autoconf automake libtool libpcap-dev libnet1-dev \
     libyaml-0-2 libyaml-dev zlib1g zlib1g-dev libmagic-dev libcap-ng-dev \
     libjansson-dev pkg-config libnetfilter-queue-dev clang libprelude-dev \
-    libnetfilter-log-dev coccinelle liblua5.1-0-dev valgrind
+    libnetfilter-log-dev coccinelle liblua5.1-0-dev valgrind libhiredis-dev
 
 run pip install "buildbot<0.9" "buildbot_slave<0.9"
 
