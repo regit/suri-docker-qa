@@ -95,16 +95,14 @@ user=admin\n\n\
 [program:buildworker]\n\
 command=twistd --nodaemon --no_save -y buildbot.tac\n\
 directory=/data/buildbot/slave\n\
-user=admin\n" > \
+user=root\n" > \
     /etc/supervisor/conf.d/buildbot.conf
 
 run sed -Ei 's/^(\%sudo.*)ALL/\1NOPASSWD:ALL/' /etc/sudoers
 
 run apt-get update && apt-get dist-upgrade -y && DEBIAN_FRONTEND=noninteractive apt-get install -y python-psutil parallel
 
-USER admin
 RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
-RUN echo "export PATH=/data/buildbot/.cargo/bin:$PATH" >> /data/buildbot/.bashrc
 
 USER root
 
