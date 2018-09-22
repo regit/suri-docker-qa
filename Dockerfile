@@ -104,6 +104,7 @@ run apt-get update && apt-get dist-upgrade -y && DEBIAN_FRONTEND=noninteractive 
 
 USER admin
 RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
+RUN echo "export PATH=/data/buildbot/.cargo/bin:$PATH" >> /data/buildbot/.bashrc
 
 USER root
 
