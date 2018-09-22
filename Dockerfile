@@ -102,8 +102,10 @@ run sed -Ei 's/^(\%sudo.*)ALL/\1NOPASSWD:ALL/' /etc/sudoers
 
 run apt-get update && apt-get dist-upgrade -y && DEBIAN_FRONTEND=noninteractive apt-get install -y python-psutil parallel
 
+USER admin
 RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
-ENV PATH=/root/.cargo/bin:$PATH
+
+USER root
 
 # Setup running docker container buildbot process
 # Make host port 8010 match container port 8010
