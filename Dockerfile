@@ -107,6 +107,9 @@ ENV PATH=/root/.cargo/bin:$PATH
 
 USER root
 
+run pip install six --upgrade
+run pip install buildbot-www
+
 # Setup running docker container buildbot process
 # Make host port 8010 match container port 8010
 expose :8010
