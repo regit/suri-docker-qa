@@ -64,16 +64,16 @@ from debian:latest
 # Install buildbot and its dependencies
 
 run apt-get update
-run DEBIAN_FRONTEND=noninteractive apt-get install -y python-pip python-dev \
+run DEBIAN_FRONTEND=noninteractive apt-get install -y python3-pip python3-dev \
     supervisor git sudo ssh \
     libpcre3-dev \
     build-essential autoconf automake libtool libpcap-dev libnet1-dev \
     libyaml-0-2 libyaml-dev zlib1g zlib1g-dev libmagic-dev libcap-ng-dev \
     libjansson-dev pkg-config libnetfilter-queue-dev clang libprelude-dev \
-    libnetfilter-log-dev liblua5.1-0-dev libhiredis-dev curl jq python-yaml \
+    libnetfilter-log-dev liblua5.1-0-dev libhiredis-dev curl jq python3-yaml \
     libmaxminddb-dev
 
-run pip install "buildbot" "buildbot_slave" buildbot-waterfall-view
+run pip3 install "buildbot" buildbot-worker buildbot-waterfall-view
 
 # Set ssh superuser (username: admin   password: admin)
 run mkdir /data /var/run/sshd
@@ -83,7 +83,7 @@ run adduser admin sudo
 # Create buildbot configuration
 run cd /data/buildbot; sudo -u admin sh -c "buildbot create-master master"
 run cd /data/buildbot; sudo -u admin sh -c \
-    "buildslave create-slave slave localhost:9989 buildslave Suridocker"
+    "buildbot-worker create-worker slave localhost:9989 buildslave Suridocker"
 
 # Set supervisord buildbot and sshd processes
 run /bin/echo -e "[program:sshd]\ncommand=/usr/sbin/sshd -D\n" > \
@@ -101,15 +101,15 @@ user=root\n" > \
 
 run sed -Ei 's/^(\%sudo.*)ALL/\1NOPASSWD:ALL/' /etc/sudoers
 
-run apt-get update && apt-get dist-upgrade -y && DEBIAN_FRONTEND=noninteractive apt-get install -y python-psutil parallel
+run apt-get update && apt-get dist-upgrade -y && DEBIAN_FRONTEND=noninteractive apt-get install -y python3-psutil parallel
 
 RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
 ENV PATH=/root/.cargo/bin:$PATH
 
 USER root
 
-run pip install six --upgrade
-run pip install buildbot-www
+#run pip3 install six --upgrade
+run pip3 install buildbot-www
 
 # Setup running docker container buildbot process
 # Make host port 8010 match container port 8010
