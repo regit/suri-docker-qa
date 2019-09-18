@@ -71,7 +71,7 @@ run DEBIAN_FRONTEND=noninteractive apt-get install -y python3-pip python3-dev \
     libyaml-0-2 libyaml-dev zlib1g zlib1g-dev libmagic-dev libcap-ng-dev \
     libjansson-dev pkg-config libnetfilter-queue-dev clang libprelude-dev \
     libnetfilter-log-dev liblua5.1-0-dev libhiredis-dev curl jq python3-yaml \
-    libmaxminddb-dev
+    libmaxminddb-dev python-yaml
 
 run pip3 install "buildbot" buildbot-worker buildbot-waterfall-view
 
